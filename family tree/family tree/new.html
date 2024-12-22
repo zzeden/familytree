@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>new family member</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="topnav">
+        <a class="active" href="new.html">new family member</a>
+        <a href="friends.html">friends</a>
+        <a href="main.html">main</a>
+        <a href="family.html">family</a>
+        <a href="pets.html">pets</a>
+
+    </div>
+
+    <form id="form1" method="get">
+        <!--שם פרטי-->
+        <label for="userName:">first name:</label>
+        <input type="text" name="userName" id="userName" required />
+        <br /> <br />
+
+        <!--שם משפחה-->
+        <label for="userName">last name:</label>
+        <input type="text" name="userName" id="userName" required />
+        <br /> <br />
+
+        <!--מקום מיגורים, אופציות כתובות בטבלה נפתחת-->
+        <label for="town">pick a town:</label>
+        <select id="town" name=" town">
+            <option value="null" selected="selected"></option>
+            <option value="haifa">haifa</option>
+            <option value="jerusalem">jerusalem</option>
+            <option value="akko">akko</option>
+            <option value="tel aviv">tel aviv</option>
+            <option value="nahariya">nahariya</option>
+        </select>
+
+        <!--תאריך לידה , פותח גם טבלה שנותנת לבחור יום שנה וחודש ,וגם יש מקום לכתוב בו את התאריך-->
+        <br /> <br />
+        <label for="birthday">birth day:</label>
+        <input type="date" name="birth day" id="date" required />
+        <br /> <br />
+
+        <!--מגדר, מותר לבחור יותר מאחד כי יש אנשים שמגדירים את עצמם ככמה דברים בו זמנית-->
+        <label>choose your gender:</label><br />
+        <input type="checkbox" id="male" name="male" value="male" />
+        <label for="male">male</label> &nbsp;
+        <input type="checkbox" id="female" name="female" value="female" />
+        <label for="female">female</label> &nbsp;
+        <input type="checkbox" id="other" name="other" value="other" />
+        <label for="other">other</label> &nbsp;
+
+        <!--מספר טלפון-->
+        <br /> <br />
+        <label for="phone">Phone number:</label>
+        <input type="tel" id="phone" name="phone" pattern="[0-9]+" maxlength="15" required />
+        <br /><br />
+
+        <!--אימייל-->
+        <label for="email">email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <!--סיסמה-->
+        <br /> <br />
+        <label for="password">password:</label>
+        <input type="password" id="password" name="password" required />
+
+        <!--בדיקת סיסמה שחזור-->
+        <br /> <br />
+        <label for="security">password recovery</label>
+        <select id="security" name="security" required>
+            <option value="parents">where was your parents born?</option>
+            <option value="grandma">whats the name of one of your grandmas?</option>
+            <option value="hospital">what hospital were you born in?</option>
+        </select>
+
+        <!--תשובה לשאלה-->
+        <br /> <br />
+        <label for="securityanswer">answer:</label>
+        <textarea id="securityanswer" name="securityanswer" required></textarea>
+
+        <!--הגשה-->
+        <br /> <br />
+        <button type="submit">submit</button>
+
+        <!--מחיקה-->
+        <button type="reset">reset</button>
+
+
+    </form>
+
+
+
+    <!--קשור למספר טלפון, מסנן אותיות וכו(נותן לכתוב רק מספרים)-->
+    <script>
+    const phoneInput = document.getElementById("phone");
+
+        phoneInput.addEventListener("input", function (e) {
+            // Remove any non-numeric characters
+            phoneInput.value = phoneInput.value.replace(/\D/g, '');
+        });
+
+        //קשור לאימייל, בודק אם האימייל תקין
+        const emailInput = document.getElementById("email");
+        const emailForm = document.getElementById("emailForm");
+        const errorMessage = document.getElementById("errorMessage");
+
+        emailForm.addEventListener("submit", function (e) {
+            const email = emailInput.value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email validation regex
+
+            if (!emailRegex.test(email)) {
+                e.preventDefault(); // Prevent form submission
+                errorMessage.style.display = "block"; // Show error message
+            } else {
+                errorMessage.style.display = "none"; // Hide error message
+                alert("Email is valid!");
+            }
+        });
+    </script>
+
+
+</body>
+</html>
