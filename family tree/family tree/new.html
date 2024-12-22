@@ -1,5 +1,8 @@
 ﻿<!DOCTYPE html>
 <html>
+<script src="script.js"></script>
+
+
 <head>
     <title>new family member</title>
     <link rel="stylesheet" href="styles.css">
@@ -17,12 +20,14 @@
     <form id="form1" method="get">
         <!--שם פרטי-->
         <label for="userName:">first name:</label>
-        <input type="text" name="userName" id="userName" required />
+        <input type="text" name="userName" id="userName" onChange='showGematria("userName","gematriaLabelFirstName");' required />
+        <label id="gematriaLabelFirstName">gematria:</label>
         <br /> <br />
 
         <!--שם משפחה-->
-        <label for="userName">last name:</label>
-        <input type="text" name="userName" id="userName" required />
+        <label for="lastName">last name:</label>
+        <input type="text" name="lastName" id="lastName" onChange='showGematria("lastName","gematriaLabelLastName");' required />
+        <label id="gematriaLabelLastName">gematria:</label>
         <br /> <br />
 
         <!--מקום מיגורים, אופציות כתובות בטבלה נפתחת-->
@@ -90,35 +95,6 @@
 
     </form>
 
-
-
-    <!--קשור למספר טלפון, מסנן אותיות וכו(נותן לכתוב רק מספרים)-->
-    <script>
-    const phoneInput = document.getElementById("phone");
-
-        phoneInput.addEventListener("input", function (e) {
-            // Remove any non-numeric characters
-            phoneInput.value = phoneInput.value.replace(/\D/g, '');
-        });
-
-        //קשור לאימייל, בודק אם האימייל תקין
-        const emailInput = document.getElementById("email");
-        const emailForm = document.getElementById("emailForm");
-        const errorMessage = document.getElementById("errorMessage");
-
-        emailForm.addEventListener("submit", function (e) {
-            const email = emailInput.value;
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email validation regex
-
-            if (!emailRegex.test(email)) {
-                e.preventDefault(); // Prevent form submission
-                errorMessage.style.display = "block"; // Show error message
-            } else {
-                errorMessage.style.display = "none"; // Hide error message
-                alert("Email is valid!");
-            }
-        });
-    </script>
 
 
 </body>
