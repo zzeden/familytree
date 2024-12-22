@@ -1,4 +1,18 @@
 ﻿
+function aliveDays(birthday) {
+    let birthdayControl = document.getElementById(birthday)
+    let valueBirthday = new Date(birthdayControl.value)
+    var today = new Date();
+    const diffTime = (today - valueBirthday);
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    let daysAliveControl = document.getElementById("DaysAlive")
+    daysAliveControl.innerHTML = diffDays
+    let moredays = (54750 - diffDays)
+    let willLiveCiontrol = document.getElementById("WillLives")
+    willLiveCiontrol.innerHTML = moredays
+}
+
+
 function showGematria(name, lbl) {
 
     let gematria = document.getElementById(lbl)

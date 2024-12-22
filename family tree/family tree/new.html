@@ -44,7 +44,13 @@
         <!--תאריך לידה , פותח גם טבלה שנותנת לבחור יום שנה וחודש ,וגם יש מקום לכתוב בו את התאריך-->
         <br /> <br />
         <label for="birthday">birth day:</label>
-        <input type="date" name="birth day" id="date" required />
+        <input type="date" name="birth day" id="date" onchange='aliveDays("date")' required />
+        <br /> <br />
+        <label>how many days youre alive: </label>
+        <label id="DaysAlive"></label>
+        <br /> <br />
+        <label>how many days youll live: </label>
+        <label id="WillLives"></label>
         <br /> <br />
 
         <!--מגדר, מותר לבחור יותר מאחד כי יש אנשים שמגדירים את עצמם ככמה דברים בו זמנית-->
